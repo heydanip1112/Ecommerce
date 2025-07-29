@@ -34,12 +34,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
-          attribute='class'
-          defaultTheme='light'
+          attribute="class"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="max-w-7xl mx-auto px-4">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
