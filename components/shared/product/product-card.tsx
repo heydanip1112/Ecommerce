@@ -1,10 +1,5 @@
 import { Product } from "@prisma/client";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import ProductPrice from "./product-price";
@@ -33,21 +28,27 @@ const ProductCard = ({ product }: { product: Product }) => {
           </h2>
         </Link>
 
+        {/* ⭐ Rating + Price / Out of stock */}
         <div className="flex justify-between items-center text-sm h-6">
           <div className="flex items-center gap-1">
             <span>{Number(product.rating).toFixed(1)}</span>
             <span>Stars</span>
           </div>
-
           <div className="flex items-center leading-none">
             {product.stock > 0 ? (
               <ProductPrice value={Number(product.price)} />
             ) : (
-              <span className="text-xs text-red-600 font-medium">Out Of Stock</span> // Texto más pequeño
+              <span className="text-xs text-red-600 font-medium">
+                Out Of Stock
+              </span>
             )}
           </div>
         </div>
       </CardContent>
+
+      <CardFooter className="p-2 pt-0">
+        {/* Puedes agregar botones aquí si lo deseas */}
+      </CardFooter>
     </Card>
   );
 };
